@@ -4,10 +4,10 @@
 this.devTestData = {
         name: 'Dev',
 
-        URL: 'https://dev.u2you.gwfathom.com',
+        URL: 'https://env.u2you.gwfathom.com',
 
         // Primary account
-        primaryEmailAddress: 'WillTest001_2015@hotmail.com',
+        primaryEmailAddress: 'FathomQA@mailinator.com',
         primaryFirstName: 'WillTestFirst',
         primaryLastName: 'WillTestLast',
         primaryUserName: (this.primaryFirstName + ' ' + this.primaryLastName),
@@ -18,7 +18,7 @@ this.devTestData = {
             state: 'Arizona', stateAbrv: 'AZ', zip: '85027'
         },
 
-        primaryUserPassword: 'Duhh1234#',
+        primaryUserPassword: 'Password123!',
         primarySecurityQuestion: 'What did the 5 fingers say to the face?',
         primarySecurityAnswer: 'SLAP!',
         primaryNumberOfOccupants: '1',
@@ -109,23 +109,13 @@ this.setupTestData = function(testData) {
                 this.U2You_Balance.verifiesLegendColors =               true;
                 this.U2You_Balance.verifiesLegendText =                 true;
                 this.U2You_Balance.verifiesDonutTooltipData =           true;
-
-                // Billpay
-
-                // CSR
-                // CSR_Regressions
-                // ForgotPassword
-                // Login
-                // Settings
-                // Summary
-                // Summary_Regressions
-
+                
                 break;
         }
 }
 
 // The tests are then wrapped by if statements that check the values stored here
-if (commonData.U2You_Balance.verifiesDonutTooltipData) {
+if (commonData.testFile.verifiesDonutTooltipData) {
         it('Verifies donut tooltip accuracy', function() {
             console.log('TEST: Verifying donut data accuracy');
 
