@@ -14,7 +14,6 @@ commonData.setupTestData(browser.params.environment);
 
 /**
  * @name Basic UI login testing
- * @see https://fathom.aha.io/features/AMPM-30
  * @copyright Copyright (c) 2014, 2015 FATHOM Water Management, Inc. All Right Reserved
  */
 
