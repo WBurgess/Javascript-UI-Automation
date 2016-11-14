@@ -1,8 +1,7 @@
 /**
- * Created by Todd Brawn on
- * Object mapping for the Prime Home Page
+ * Page object for /#/login
  *
- * @copyright Copyright (c) 2014, 2015 FATHOM Water Management, Inc. All Right Reserved
+ * @copyright Copyright (c) 2014 - 2016 FATHOM Water Management, Inc. All Right Reserved
  * */
 var globalData = require ('./../common/globalData.js');
 var commonData = require('./../common/commonData.js');
@@ -57,6 +56,15 @@ var loginPage = function() {
             'Login Page validation failed: Pay Now Button is not displayed');
         expect((this.titleImage).isDisplayed()).toBe(true,
             'Login Page validation failed: Title Image is not displayed');
+        
+        // REST-dependent customizer tests
+        this.titleImage.getAttribute('ng-src').then(function (src) {
+            commonData.elementCustomizerIsValid(src, 'muni_logo',
+                ['../images/logo.jpg', '../images/utilitylogo.png']);
+        });
+        this.contactDivPhoneNumber.getText().then(function (text) {
+            commonData.elementCustomizerIsValid(text, 'login_page_help_phone');
+        });
     };
 
     /**
@@ -79,7 +87,6 @@ var loginPage = function() {
      * @param userType - type of login: regular, CSR, admin
      * @param email - email used to login
      */
-    //TODO - Timing out should land user at the page they were at; re-logging in same session will land at /#/summary
     this.validateSuccessfulLogin = function(userType, email, accountNumber) {
 
         browser.wait(function() {
